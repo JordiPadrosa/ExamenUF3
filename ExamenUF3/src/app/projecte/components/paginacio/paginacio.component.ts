@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Artista } from '../../model/entitats/Artista';
-import { Pagina } from '../../model/entitats/Pagina';
 import { Quadra } from '../../model/entitats/Quadra';
 import { user } from '../../model/services/user';
 
@@ -12,7 +11,8 @@ import { user } from '../../model/services/user';
 export class PaginacioComponent {
   quadres: Array<Quadra> = [];
   artista!: Artista;
-  pagina!: Pagina;
+  current_page!: string;
+  total_pages!: string;
   constructor(private httpClient: user) { 
     this.httpClient.getQuadres().subscribe(
       response => {
@@ -21,7 +21,12 @@ export class PaginacioComponent {
     )
     this.httpClient.getNumPagines().subscribe(
       response => {
-        this.pagina = response.pagination;
+        this.current_page = response.pagination.current_page;
+      }
+    )
+    this.httpClient.getNumPagines().subscribe(
+      response => {
+        this.total_pages = response.pagination.total_pages;
       }
     )
   }
