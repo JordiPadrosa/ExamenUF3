@@ -9,9 +9,18 @@
     <tbody>
         <tr *ngFor="let quadra of quadres">
             <td>{{quadra.title}}</td>
-            <td *ngIf="quadra.thumbnail.lqip != null">
-                <img src="{{quadra.thumbnail.lqip}}">
+            <td>
+                <img *ngIf="quadra.thumbnail != null" [src]="quadra.thumbnail.lqip" [alt]="quadra.thumbnail.alt_text">
             </td>
+            <!-- <td *ngIf="getArtistaById(quadra.artist_id) != null">
+                {{this.artista}}
+            </td> 
+            <td>
+                {{this.artista.birth_date}}
+            </td>
+            <td>
+                {{this.artista.death_date}}
+            </td> -->
         </tr>
     </tbody>
 </table>

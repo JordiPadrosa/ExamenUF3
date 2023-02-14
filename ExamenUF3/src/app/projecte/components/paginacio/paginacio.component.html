@@ -1,1 +1,29 @@
-<p>paginacio works!</p>
+<h1>Llistat de Quadres</h1>
+<p>Mida imatge</p>
+<input type="number">
+<table>
+    <thead>
+        <th>Títol</th>
+        <th>Id</th>
+        <th>Imatge</th>
+        <th>Visualitzer</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quadra of quadres">
+            <td>{{quadra.title}}</td>
+            <td>
+                {{quadra.id}}
+            </td>
+            <td>
+                <img *ngIf="quadra.thumbnail != null" [src]="quadra.thumbnail.lqip" [alt]="quadra.thumbnail.alt_text">
+            </td>
+            <td>
+                <input type="submit" value="Veure">
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<form>
+    Documents per plana: <input type="number"> Plana <input type="number"> <input type="submit" value="Accedir" (click)="canviarPlana()">
+</form>

@@ -20,10 +20,16 @@ export class user {
         return this.http.get('https://api.artic.edu/api/v1/artworks', requestOptions);
     }
 
-    getArtistes():Observable<any> {
+    getArtistaByID(id: string):Observable<any> {
         const requestOptions = this.createHeader();
-        return this.http.get('https://api.artic.edu/api/v1/artworks', requestOptions);
+        return this.http.get('https://api.artic.edu/api/v1/artists/' + id, requestOptions);
     }
+
+    getPagina(page: string, limit: string):Observable<any> {
+        const requestOptions = this.createHeader();
+        return this.http.get('https://api.artic.edu/api/v1/artworks?page=' + page + '&limit' + limit, requestOptions);
+    }
+
 
     private createHeader() {
         const header = {

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Artista } from '../../model/entitats/Artista';
 import { Quadra } from '../../model/entitats/Quadra';
 import { user } from '../../model/services/user';
 
@@ -10,19 +11,21 @@ import { user } from '../../model/services/user';
 })
 export class FixaComponent {
   quadres: Array<Quadra> = [];
+  artista!: Artista;
   constructor(private httpClient: user) { 
     this.httpClient.getQuadres().subscribe(
       response => {
-        console.log(response);
         this.quadres = response.data;
       }
     )
-    this.httpClient.getArtistes().subscribe(
+  }
+  getArtistaById(id : string) {
+    this.httpClient.getArtistaByID(id).subscribe(
       response => {
-        console.log(response);
-        this.quadres = response.data;
+        this.artista = response.data;
       }
     )
+    return this.artista;
   }
   
 }
