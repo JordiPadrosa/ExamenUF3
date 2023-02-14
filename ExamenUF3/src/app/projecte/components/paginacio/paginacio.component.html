@@ -1,6 +1,7 @@
 <h1>Llistat de Quadres</h1>
 <p>Mida imatge</p>
 <input type="number">
+<h1>Pàgina {{pagina.current_page}} de {{pagina.total_pages}}</h1>
 <table>
     <thead>
         <th>Títol</th>
@@ -20,10 +21,11 @@
             <td>
                 <input type="submit" value="Veure">
             </td>
+            
         </tr>
         
     </tbody>
 </table>
-<form>
-    Documents per plana: <input type="number"> Plana <input type="number"> <input type="submit" value="Accedir" (click)="canviarPlana()">
+<form id="formPagines">
+    Documents per plana: <input type="number" name="limit"> Plana <input type="number" name="page"> <input type="submit" value="Accedir" (click)="canviarPlana()">
 </form>

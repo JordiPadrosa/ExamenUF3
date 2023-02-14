@@ -25,6 +25,11 @@ export class user {
         return this.http.get('https://api.artic.edu/api/v1/artists/' + id, requestOptions);
     }
 
+    getNumPagines():Observable<any> {
+        const requestOptions = this.createHeader();
+        return this.http.get('https://api.artic.edu/api/v1/artworks', requestOptions);
+    }
+
     getPagina(page: string, limit: string):Observable<any> {
         const requestOptions = this.createHeader();
         return this.http.get('https://api.artic.edu/api/v1/artworks?page=' + page + '&limit' + limit, requestOptions);
