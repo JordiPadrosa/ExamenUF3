@@ -1,1 +1,17 @@
-<p>fixa works!</p>
+<table>
+    <thead>
+        <th>Títol</th>
+        <th>Imatge</th>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Death</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quadra of quadres">
+            <td>{{quadra.title}}</td>
+            <td *ngIf="quadra.thumbnail.lqip != null">
+                <img src="{{quadra.thumbnail.lqip}}">
+            </td>
+        </tr>
+    </tbody>
+</table>

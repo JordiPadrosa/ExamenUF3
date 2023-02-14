@@ -15,16 +15,22 @@ export class user {
         return this.http.post("https://gorest.co.in/public/v2/users", userJSON, requestOptions);
       }
 
-    getUsers():Observable<any> {
+    getQuadres():Observable<any> {
         const requestOptions = this.createHeader();
-        return this.http.get('https://gorest.co.in/public/v2/users', requestOptions);
+        return this.http.get('https://api.artic.edu/api/v1/artworks', requestOptions);
     }
+
+    getArtistes():Observable<any> {
+        const requestOptions = this.createHeader();
+        return this.http.get('https://api.artic.edu/api/v1/artworks', requestOptions);
+    }
+
     private createHeader() {
         const header = {
-            'Access-Control-Allow-Origin':'*',
-            'Content-Type':'application/json',
-            'Accept':'application/json',
-            'Accept-Control-Allow-Headers': 'Origin,Content-Type,Accept,',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Accept-Control-Allow-Headers': 'Origin,Content-Type,Accept,Authorization',
         }
         return { headers: new HttpHeaders(header)}
     }
